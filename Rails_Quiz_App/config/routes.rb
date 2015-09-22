@@ -1,4 +1,19 @@
-Rails.application.routes.draw do
+RailsQuizApp::Application.routes.draw do
+  get     'login'       => 'sessions#new'
+  post    'login'       => 'sessions#create'
+
+  get     'register'    => 'sessions#new_register'
+  post    'register'    => 'sessions#create_register'
+
+  get     'logout'      => 'sessions#destroy'
+
+  get     'home'        => 'pages#home'
+  get     'help'        => 'pages#help'
+  get     'about'       => 'pages#about'
+  get     'contact'     => 'pages#contact'
+
+  resources :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
