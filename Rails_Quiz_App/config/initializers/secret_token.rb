@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-RailsQuizApp::Application.config.secret_key_base = '2f0ba674a98cf3acb906a1f0f3f2c0a455223ace33eceac0ab344fe7aecb1b8dfb7d56a5f6155b336d717f02c4b0e4e6935d100966cf33c7b719ab5a080fa41a'
+Project002::Application.config.secret_key_base = '6e5886de73bc5bc11aa13b188443e23a9839cd40bee4cdbdabe9ecc4e485fce488db4636347ee375b9bfc199fe1a1eef5997c71e1ce878fa7bc673a963960c3c'

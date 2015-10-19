@@ -1,40 +1,73 @@
-<!DOCTYPE html>
+<!DOCTYPE>
 <html>
 <head>
-  <title>Rails Quiz App</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+	<title><%= yield(:title) %></title>
+	<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
 </head>
 <body>
-	<header class="navbar navbar-fixed-top navbar-inverse">
-      	<div class="container">	        
-	        <nav>
-              <ul class="nav navbar-nav navbar-right">
-              <% if session[:session_username_abc123] %>            
-                <li><a style="color: red;">Hi ! <%= session[:session_username_abc123] %></a></li>
-                <li><a href="/logout">Logout</a></li>
-              <% else %>
-                <li><a style="color: #fff;"> &gt;&gt; You not login &lt;&lt;</a></li>
-                <li><a href="/login">Login</a></li>
-                <li><a href="/register">Register</a></li>
-              <% end %>
-
-              </ul>
-	          	<ul class="nav navbar-nav navbar-left">
-	            	<li><a href="/home">Home</a></li>
-	            	<li><a href="/about">About</a></li>
-	            	<li><a href="/contact">Contact</a></li>
-	            	<li><a href="/help">Help</a></li>                
-	          	</ul>
-	        </nav>
+	<header class="navbar navbar-inverse">
+      	<div class="container-fuil">      		
+      		<nav>
+      			<ul class="nav navbar-nav navbar-left">
+      				<li><a>&nbsp;</a></li>
+      				<li><a href="/home" class="logo">Quiz App</a></li>
+      			</ul>
+          		<ul class="nav navbar-nav navbar-right" id="navLeft">
+            		<li><a href="/home">Home</a></li>
+            		<li><a href="/contact">Contact</a></li>
+            		<% if session[:username_abc123] %>
+            			<li>
+            				<a style="color: red;">Hi ! <%= session[:username_abc123] %> <span class="caret"></span></a>
+            				<ul class="nav nav-pills nav-stacked">
+            					<li><a href="/profile"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
+            					<li><a href="/logout"><span class="glyphicon glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li>            					
+            				</ul>
+            			</li>
+            			<li><a>&nbsp;</a></li>
+            		<% else %>
+            			<li><a href="/login">Login</a></li>
+            			<li><a href="/register">Sign up</a></li>
+            			<li><a>&nbsp;</a></li>
+            		<% end %>
+          		</ul>
+          	</nav>        
       	</div>
     </header>
     <div class="clearfix"></div>
-    <br/><br/><br/>
     <div class="container">
-      <%= yield %>
+      	<div class="col-lg-3" id="pleft">
+      		<ul class="nav nav-pills nav-stacked" id="subject">
+      			<li class="active"><a>Subject</a></li>
+  				<li><a href="#">Entertaiment(56)</a></li>
+  				<li><a href="#">Sport(45)</a></li>
+  				<li><a href="#">Food & Drink(32)</a></li>
+  				<li><a href="#">History(41)</a></li>
+  				<li><a href="#">Geography(66)</a></li>
+  				<li><a href="#">TV & Movies(72)</a></li>
+  				<li><a href="#">Music(46)</a></li>
+  				<li><a href="#">Science and Nature(53)</a></li>
+  				<li><a href="#">General Knowledge(64)</a></li>
+			</ul>
+      	</div>
+      	<div class="col-lg-9" id="pright">      		
+      		<%= yield %>
+      	</div>
     </div>
-
+    <div class="clearfix"></div>
+    <footer>
+    	<div class="container">
+    	<small>Rails Quiz App Demo</small>
+    	<nav>
+    		<ul>
+      			<li>Home</li>
+      			<li>About</li>
+      			<li>Help</li>
+      			<li>Contact</li>
+    		</ul>
+  		</nav>
+  		</div>
+    </footer>
 </body>
 </html>
