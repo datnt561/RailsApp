@@ -12,11 +12,20 @@ class UsersController < ApplicationController
   	end
 	end
   
-  def show     
+  def show   
+
   end
 
-
-
+  #edit profile 
+  def update 
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to "/profile", :notice => "Edit infomation success !"
+    else
+      redirect_to "/profile", :notice => "Errors !"
+    end
+  end
+  
   private  
     def set_user
       @user = User.find(session[:user_id_abc123])
