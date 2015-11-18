@@ -1,10 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit]
-  
-  def index
-    @users = User.all
-  end
-
+  before_action :set_user, only: [:show]
   def new
   	@user = User.new
 	end
@@ -17,15 +12,8 @@ class UsersController < ApplicationController
   	end
 	end
   
-<<<<<<< HEAD
   def show   
 
-=======
-  def show     
-  end
-
-  def edit
->>>>>>> origin/master
   end
 
   #edit profile 

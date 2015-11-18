@@ -7,7 +7,7 @@
     <%= csrf_meta_tags %>
 </head>
 <body>
-	<header class="navbar navbar-inverse">
+	<header class="navbar navbar-pills" id="nav-top">
       	<div class="container-fuil">      		
       		<nav>
       			<ul class="nav navbar-nav navbar-left">
@@ -45,7 +45,8 @@
       	</div>
     </header>
     <div class="clearfix"></div>
-    <div class="container">
+    <div class="container" id="pagebody">
+      <div class="row">
       	<div class="col-lg-3" id="pleft">
       		<ul class="nav nav-pills nav-stacked" id="subject">
       			<li class="active"><a>Subject</a></li>
@@ -60,21 +61,41 @@
             %>            
 			    </ul>
           <br/>
-          <ul class="nav nav-pills nav-stacked" id="subject">
+          <ul class="nav nav-pills nav-stacked">
             <li class="active"><a>Leaderboard</a></li>
             <li>
-              1.admin &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100<br/> 
-              1.admin &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100<br/> 
-              1.admin &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100<br/> 
-              1.admin &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100<br/> 
-              1.admin &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100<br/> 
-              1.admin &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100<br/> 
+              <ul class="nav nav-stacked">
+                <li>
+                  <div class="pull-left"></div>
+                  <div class="pull-right">SCORE</div>
+                  <div class="clearfix"></div>
+                </li>
+                <%
+                  @user_top= User.order("score DESC").limit(10)
+                  i=0;
+                  @user_top.each do |t|
+                    i=i+1;
+                %>
+                <li>
+                  <div class="pull-left"><%= i %>. <%= t.username %></div>
+                  <% if t.score==nil %>
+                    <div class="pull-right">0</div>
+                  <% else %>
+                    <div class="pull-right"><%= t.score %></div>
+                  <% end %>
+                </li>
+                <hr/>
+                <div class="clearfix"></div>
+
+                <% end %>
+              </ul> 
             </li>
           </ul>
       	</div>
       	<div class="col-lg-9" id="pright">      		
       		<%= yield %>
       	</div>
+      </div>
     </div>
     <div class="clearfix"></div>
 

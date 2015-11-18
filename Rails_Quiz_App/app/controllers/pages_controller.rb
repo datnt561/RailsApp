@@ -11,6 +11,9 @@ class PagesController < ApplicationController
   		@cate_id= params[:cate_id]
   		@slug= params[:slug]
   		@cate= Categories.find(params[:cate_id])
-  		@quiz= Quizzes.where(cate_id: params[:cate_id])  		
+  		@quiz= Quizzes.where(cate_id: params[:cate_id]).order("RAND()").limit(5)		
   	end
+    def checkanswer
+      
+    end
 end

@@ -7,6 +7,9 @@
 .logo{
 	font-size: 22px;
 }
+#nav-top{
+	background: #B0E0E6;
+}
 #navLeft ul{
 	 display: none;
 	 position: absolute;
@@ -29,11 +32,13 @@
 #subject li {
 	border: 1px solid #79CDCD;
 }
-
+#pagebody{
+	margin-bottom: 20px;
+}
 /* pright */
 #pright{
   border: 1px solid #79CDCD; 
-  height: 1200px;
+  padding-bottom: 20px;
 }
 .footer{ 
   background-color: #f5f5f5; 
