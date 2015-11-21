@@ -61,7 +61,7 @@
 		    	</table>
 		    </div>
 		    <div role="tabpanel" class="tab-pane" id="tabs2">
-		    	<a href="/admin/category-add" class="btn btn-danger">Add category</a>
+		    	<a href="/category/new" class="btn btn-danger">Add category</a>
 		    	<table class="table table-striped">
 		    		<thead>
 		    			<th>ID</th>
@@ -79,8 +79,8 @@
 		    				<td><%= k.cate_id %></td>
 		    				<td><%= k.name %></td>
 		    				<td><%= k.slug %></td>
-		    				<td><span class="glyphicon glyphicon-pencil text-success" aria-hidden="true"></span></td>
-	    					<td><span class="glyphicon glyphicon-trash text-danger" aria-hidden="true"></span></td>
+		    				<td><a href="/category/edit/<%= k.cate_id %>/<%= k.slug %>"><span class="glyphicon glyphicon-pencil text-success" aria-hidden="true"></span></a></td>
+	    					<td><a href="/category/del/<%= k.cate_id %>"><span class="glyphicon glyphicon-trash text-danger" aria-hidden="true"></span></a></td>
 		    			</tr>
 		    			<% end %>
 		    			

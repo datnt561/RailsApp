@@ -17,6 +17,13 @@ Project002::Application.routes.draw do
   post "quizzes/update"
   get "quizzes/del/:quiz_id"                  => "quizzes#del"                  
 
+  get "category/new"
+  post "category/create"
+  get "category/edit/:cate_id/:cate_slug"     => "category#edit"
+  post "category/update"
+  get "category/del/:cate_id"                 => "category#del"
+
+
   root :to => "pages#home"
   resources :users
   resources :sessions  

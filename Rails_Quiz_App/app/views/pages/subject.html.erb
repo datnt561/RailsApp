@@ -19,7 +19,8 @@
         @choices.each do |k|
           j=j+1
       %>
-				<tr><td><input type="radio" name="choice_quiz_<%= f.quiz_id %>"/> <%= k.choice_title %>. <%= k.choice_content %></td></tr>  	 				
+				<tr><td><input type="radio" name="choice_quiz_<%= i %>" value="<%= k.choice_title %>"  /> <%= k.choice_title %>. <%= k.choice_content %></td></tr>  	 				
+
       <% end %>	   
 		</table>
     <% end %>
